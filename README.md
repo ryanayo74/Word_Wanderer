@@ -10,4 +10,5 @@ AYO, RYAN<br>
 
 
 //CLONING THIS REPOSITORY<br>
-git clone https://ryanayo74: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@github.com/ryanayo74/Word_Wanderer<br>
+git clone https://ryanayo74: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@github.com/ryanayo74/Word_Wanderer.git
+<br>
