@@ -10,11 +10,11 @@ class FirstScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_screen)
 
-        val button1: Button = findViewById(R.id.exploreButton)
+        val buttonExplore: Button = findViewById(R.id.exploreButton)
 
-        var intent = Intent(this, LogInActivity::class.java)
+        val intent = Intent(this, LoginGuestActivity::class.java)
 
-        button1.setOnClickListener {
+        buttonExplore.setOnClickListener {
             startActivity(intent)
         }
 

@@ -10,22 +10,22 @@ class GuestDashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest_dashboard)
 
-        val button1: Button = findViewById(R.id.signInButton)
-        val button2: Button = findViewById(R.id.signUpButton)
-        val textButton:Button = findViewById(R.id.textButton)
+        val buttonSignIn: Button = findViewById(R.id.signInButton)
+        val buttonSignUp: Button = findViewById(R.id.signUpButton)
+        val buttonTextTranslate:Button = findViewById(R.id.buttonTextTranslate)
 
-        var intent = Intent(this, LogInActivity::class.java)
-        button1.setOnClickListener {
+        val intent = Intent(this, LogInActivity::class.java)
+        buttonSignIn.setOnClickListener {
             startActivity(intent)
         }
 
-        var intent2 = Intent(this, RegistrationActivity::class.java)
-        button2.setOnClickListener {
+        val intent2 = Intent(this, RegistrationActivity::class.java)
+        buttonSignUp.setOnClickListener {
             startActivity(intent2)
         }
 
-        var intent3 = Intent(this, TextTranslationActivity::class.java)
-        textButton.setOnClickListener {
+        val intent3 = Intent(this, TextTranslationActivity::class.java)
+        buttonTextTranslate.setOnClickListener {
             startActivity(intent3)
         }
     }

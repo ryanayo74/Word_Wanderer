@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 
 class LoginGuestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,17 +12,24 @@ class LoginGuestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_guest)
 
 
-        val button1:Button = findViewById(R.id.button_signin)
-        val button2:Button = findViewById(R.id.  button_login_guest)
+        val loginButton:Button = findViewById(R.id.button_signin)
+        val guestButton:Button = findViewById(R.id. button_login_guest)
+        val registerTextView:TextView = findViewById(R.id.textRegister)
 
-        var intent = Intent(this, GuestDashboardActivity::class.java)
-        button2.setOnClickListener {
+
+        guestButton.setOnClickListener {
+            val intent = Intent(this, GuestDashboardActivity::class.java)
             startActivity(intent)
         }
 
-        var intent2 = Intent(this, LogInActivity::class.java)
-        button1.setOnClickListener {
-            startActivity(intent2)
+        loginButton.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+        }
+
+        registerTextView.setOnClickListener {
+            val intent = Intent(this, RegistrationActivity::class.java)
+            startActivity(intent)
         }
     }
 }

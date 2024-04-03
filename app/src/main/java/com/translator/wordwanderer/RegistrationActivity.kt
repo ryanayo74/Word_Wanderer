@@ -14,31 +14,26 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        val button1: Button = findViewById(R.id.button)
+        val buttonRegister: Button = findViewById(R.id.buttonRegister)
         val inputEmail: EditText = findViewById(R.id.emailAddress)
-        val input2: EditText = findViewById(R.id.phoneNumber)
-        val input3: EditText = findViewById(R.id.password)
+        val inputPhoneNumber: EditText = findViewById(R.id.phoneNumber)
+        val inputPassWord: EditText = findViewById(R.id.password)
         var emailInput:String?
         var numInput:String?
         var passInput: String?
-        val button2: Button = findViewById(R.id.button)
 
-        val login: TextView = findViewById(R.id.textLogin)
+        val textLogin: TextView = findViewById(R.id.textLogin)
 
-        login.setOnClickListener {
+        textLogin.setOnClickListener {
             val intent = Intent(this@RegistrationActivity, LogInActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-
-
-        /*val intent = Intent(this, DummyDisplay::class.java)*/
-
-        button1.setOnClickListener{
+        buttonRegister.setOnClickListener{
             emailInput = inputEmail.text.toString()
-            numInput = input2.text.toString()
-            passInput = input3.text.toString()
+            numInput = inputPhoneNumber.text.toString()
+            passInput = inputPassWord.text.toString()
 
             //validate all inputs
             if (isEmailValid(emailInput!!) && isPasswordValid(passInput!!) && isPhoneValid(numInput!!)) {
@@ -80,7 +75,7 @@ private fun isEmailValid(email: String): Boolean {
     val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
     return emailRegex.toRegex().matches(email)
 }
-//funtion for password validation
+//function for password validation
 private fun isPasswordValid(password: String): Boolean{
     if (password.length < 8){
         return false
@@ -91,7 +86,7 @@ private fun isPasswordValid(password: String): Boolean{
 
     return  hasUpperCase && hasLowerCase && hasDigit
 }
-//funtion for phone number valitdation
+//Function for phone number validation
 private fun isPhoneValid(number: String): Boolean{
     val digitsOnly = number.all{it. isDigit()}
 

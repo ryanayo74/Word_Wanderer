@@ -38,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".GuestDashboardActivity"
-            android:exported="false" /> <!-- Define your activities -->
+            android:exported="false" />
         <activity
             android:name=".DashboardActivity"
             android:exported="true"
@@ -59,16 +59,6 @@
             android:name=".LogInActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-            <!-- Keep the intent filter for the launcher activity -->
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

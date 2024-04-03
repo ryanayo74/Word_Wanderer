@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WordWanderer</string>
+    <string name="buttonSubmit">submit</string>
+    <string name="buttonCancel">cancel</string>
+    <string name="editTextEnterNewPassword">Enter New Password</string>
+    <string name="confirmNewPassword">Confirm New Password</string>
 </resources>

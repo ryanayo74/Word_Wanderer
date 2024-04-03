@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -15,9 +14,9 @@ class LogInActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
         setContentView(R.layout.activity_log_in)
 
-        val button1:Button = findViewById(R.id.buttonSignIn)
-        val input:EditText = findViewById(R.id.textUserName)
-        val input2:EditText = findViewById(R.id.textPassword)
+        val buttonSignIn:Button = findViewById(R.id.buttonSignIn)
+        val editTextUserName:EditText = findViewById(R.id.textUserName)
+        val editTextPassword:EditText = findViewById(R.id.textPassword)
         val forgotPassword:TextView = findViewById(R.id.textForgotPassword)
         val register:TextView = findViewById(R.id.textRegister)
 
@@ -33,21 +32,21 @@ class LogInActivity : AppCompatActivity() {
             finish()
         }
 
-        button1.setOnClickListener {
-            val textInput: String = input.text.toString().trim()
-            val textInput2: String = input2.text.toString().trim()
+        buttonSignIn.setOnClickListener {
+            val inputUserName: String = editTextUserName.text.toString().trim()
+            val inputPassword: String = editTextPassword.text.toString().trim()
 
-            if (textInput.isEmpty() || textInput2.isEmpty()) {
+            if (inputUserName.isEmpty() || inputPassword.isEmpty()) {
                 Toast.makeText(this, "Please input email and password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val isValidEmail = android.util.Patterns.EMAIL_ADDRESS.matcher(textInput).matches()
-            val containsCapital = textInput2.any { it.isUpperCase() }
-            val containsCharacter = textInput2.any { it.isLetter() }
-            val containsNumber = textInput2.any { it.isDigit() }
+            val isValidEmail = android.util.Patterns.EMAIL_ADDRESS.matcher(inputUserName).matches()
+            val containsCapital = inputPassword.any { it.isUpperCase() }
+            val containsCharacter = inputPassword.any { it.isLetter() }
+            val containsNumber = inputPassword.any { it.isDigit() }
 
-            if (!isValidEmail || textInput != textInput.toLowerCase()) {
+            if (!isValidEmail || inputUserName != inputUserName.toLowerCase()) {
                 Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -63,10 +62,9 @@ class LogInActivity : AppCompatActivity() {
 
             // If both email and password are valid, proceed to DashboardActivity
             val intent = Intent(this, DashboardActivity::class.java)
-            intent.putExtra("Username", textInput)
-            intent.putExtra("Password", textInput2)
+            intent.putExtra("Username", inputUserName)
+            intent.putExtra("Password", inputPassword)
             startActivity(intent)
-
         }
 
         }
