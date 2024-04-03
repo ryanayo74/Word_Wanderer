@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="input1" type="id" />
+    <item name="input2" type="id" />
+    <item name="input3" type="id" />
+    <item name="input4" type="id" />
+    <item name="input5" type="id" />
+    <item name="button" type="id" />
+    <item name="textview" type="id" />
+</resources>
