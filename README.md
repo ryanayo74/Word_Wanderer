@@ -16,5 +16,9 @@ BESIN, JENEVA<br>
 HEREDIA, KERSHEY
 
 
-//CLONING THIS REPOSITORY<br>
-git clone https://github.com/ryanayo74/Word_Wanderer<br>
+//GITHUB REPOSITORY<br>
+https://github.com/ryanayo74/Word_Wanderer<br>
+
+//SAMPLE APK <br>
+https://drive.google.com/file/d/1JXJkMw1e_hHeXCGcgcSBZLbIas7TFyZz/view?usp=sharing
+
