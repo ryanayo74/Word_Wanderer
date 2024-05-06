@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class ForgotPasswordActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
@@ -15,14 +20,13 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val buttonContinue: Button = findViewById(R.id.ButtonContinue)
         val buttonCancel: Button = findViewById(R.id.Cancel)
 
+        auth = FirebaseAuth.getInstance()
 
         buttonContinue.setOnClickListener {
             val emailInput: String = email.text.toString()
 
             if (isValidEmail(emailInput)) {
-                val intent = Intent(this, ForgotPassWordCodeActivity::class.java)
-                intent.putExtra("Email", emailInput)
-                startActivity(intent)
+                sendPasswordResetEmail(emailInput)
             } else {
                 email.error = "Invalid email address"
             }
@@ -33,7 +37,31 @@ class ForgotPasswordActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-        private fun isValidEmail(email: String): Boolean {
-            return Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        }
+
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+
+    private fun sendPasswordResetEmail(email: String) {
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Password reset email sent successfully
+                    Toast.makeText(this, "Password reset email sent.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LogInActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // Failed to send password reset email
+                    val exception = task.exception
+                    if (exception is FirebaseAuthInvalidUserException) {
+                        // Email doesn't exist in Firebase user database
+                        Toast.makeText(this, "Email doesn't exist.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // Other failure
+                        Toast.makeText(this, "Failed to send password reset email.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+    }
+}
+

@@ -73,6 +73,9 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/teal_200"
+        android:drawableEnd="@drawable/account_icon"
         app:layout_constraintVertical_bias="0.322" />
 
     <Button
@@ -85,6 +88,9 @@
         app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toEndOf="@+id/signInButton"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/teal_200"
+        android:drawableEnd="@drawable/account_icon"
         app:layout_constraintVertical_bias="0.322" />
 
     <ImageView

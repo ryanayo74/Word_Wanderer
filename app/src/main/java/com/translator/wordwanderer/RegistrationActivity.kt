@@ -1,5 +1,6 @@
 package com.translator.wordwanderer
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,19 +8,28 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import android.util.Log
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 
 class RegistrationActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        auth = FirebaseAuth.getInstance()
 
         val buttonRegister: Button = findViewById(R.id.buttonRegister)
         val inputEmail: EditText = findViewById(R.id.emailAddress)
         val inputPhoneNumber: EditText = findViewById(R.id.phoneNumber)
         val inputPassWord: EditText = findViewById(R.id.password)
-        var emailInput:String?
-        var numInput:String?
+        var emailInput: String?
+        var numInput: String?
         var passInput: String?
 
         val textLogin: TextView = findViewById(R.id.textLogin)
@@ -30,37 +40,76 @@ class RegistrationActivity : AppCompatActivity() {
             finish()
         }
 
-        buttonRegister.setOnClickListener{
+        buttonRegister.setOnClickListener {
             emailInput = inputEmail.text.toString()
             numInput = inputPhoneNumber.text.toString()
             passInput = inputPassWord.text.toString()
 
-            //validate all inputs
             if (isEmailValid(emailInput!!) && isPasswordValid(passInput!!) && isPhoneValid(numInput!!)) {
-                // All conditions are true, proceed to start the other activity
-                intent.putExtra("EMAIL", emailInput)
-                intent.putExtra("PASSWORD", passInput)
-                intent.putExtra("PHONE_NUM", numInput)
-                startActivity(intent)
+                // Create the user in Firebase Authentication
+                auth.createUserWithEmailAndPassword(emailInput!!, passInput!!)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Account creation success, save additional user information
+                            val user = auth.currentUser
+                            val userProfileChangeRequest = UserProfileChangeRequest.Builder()
+                                .setDisplayName(numInput) // Save phone number as display name
+                                .build()
+
+                            user?.updateProfile(userProfileChangeRequest)
+                                ?.addOnCompleteListener { profileTask ->
+                                    if (profileTask.isSuccessful) {
+                                        // Profile update success
+                                        Toast.makeText(
+                                            baseContext,
+                                            "Account created and information saved",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        // Navigate to login page
+                                        val intent = Intent(this@RegistrationActivity, LogInActivity::class.java)
+                                        startActivity(intent)
+                                        finish() // Finish the current activity to prevent going back to it with back button
+                                    } else {
+                                        // Profile update failed
+                                        Log.e(
+                                            TAG,
+                                            "Error updating user profile",
+                                            profileTask.exception
+                                        )
+                                        Toast.makeText(
+                                            baseContext,
+                                            "Error saving user information",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        } else {
+                            // If account creation fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            Toast.makeText(
+                                baseContext,
+                                "Email already exist.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
             } else {
-                // At least one condition is false, show corresponding error message
+                // Show validation errors
                 if (!isEmailValid(emailInput!!)) {
                     showAlert("Invalid email address")
                 }
                 if (!isPasswordValid(passInput!!)) {
-                    showAlert("Invalid password")
+                    showAlert("Password must contain at least 6 characters, including one uppercase letter and one number.")
                 }
                 if (!isPhoneValid(numInput!!)) {
                     showAlert("Invalid phone number")
                 }
             }
-
-            val intent = Intent(this, LogInActivity::class.java)
-            startActivity(intent)
         }
     }
 
-    private fun showAlert(message: String) {
+
+        private fun showAlert(message: String) {
         val alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.setTitle("Error")
         alertDialogBuilder.setMessage(message)
@@ -94,4 +143,6 @@ private fun isPhoneValid(number: String): Boolean{
 
     return digitsOnly && length
 }
+
+
 

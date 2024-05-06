@@ -4,4 +4,14 @@
     <string name="buttonCancel">cancel</string>
     <string name="editTextEnterNewPassword">Enter New Password</string>
     <string name="confirmNewPassword">Confirm New Password</string>
+    <string name="enter_your_new_password">Enter Your New Password</string>
+    <string name="create_new_password">Create New Password</string>
+    <string name="wordwanderer">WORDWANDERER</string>
+    <string name="welcome">WELCOME</string>
+    <string name="display">Display</string>
+    <string name="dashboard">DASHBOARD</string>
+    <string name="games">Games</string>
+    <string name="modules">Modules</string>
+    <string name="languages">Languages</string>
+    <string name="translation">Translation</string>
 </resources>

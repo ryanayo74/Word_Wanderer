@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579797359306",
+    "project_id": "wordwanderer-78916",
+    "storage_bucket": "wordwanderer-78916.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579797359306:android:a50152d24160e00e547233",
+        "android_client_info": {
+          "package_name": "com.translator.wordwanderer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579797359306-engo01ti26cljrguibidqngtfepvdndk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU4e94E5aCd_QJ8oBMBQfmvLGq2x7VCMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579797359306-engo01ti26cljrguibidqngtfepvdndk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

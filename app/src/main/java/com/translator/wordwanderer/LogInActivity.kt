@@ -7,12 +7,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class LogInActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide();
         setContentView(R.layout.activity_log_in)
+
+        auth = Firebase.auth
 
         val buttonSignIn:Button = findViewById(R.id.buttonSignIn)
         val editTextUserName:EditText = findViewById(R.id.textUserName)
@@ -41,31 +48,21 @@ class LogInActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val isValidEmail = android.util.Patterns.EMAIL_ADDRESS.matcher(inputUserName).matches()
-            val containsCapital = inputPassword.any { it.isUpperCase() }
-            val containsCharacter = inputPassword.any { it.isLetter() }
-            val containsNumber = inputPassword.any { it.isDigit() }
-
-            if (!isValidEmail || inputUserName != inputUserName.toLowerCase()) {
-                Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (!containsCapital || !containsCharacter || !containsNumber) {
-                Toast.makeText(
-                    this,
-                    "Password must contain at least one capital letter, one character, and one number",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            // If both email and password are valid, proceed to DashboardActivity
-            val intent = Intent(this, DashboardActivity::class.java)
-            intent.putExtra("Username", inputUserName)
-            intent.putExtra("Password", inputPassword)
-            startActivity(intent)
-        }
-
+            // Authenticate user with Firebase
+            auth.signInWithEmailAndPassword(inputUserName, inputPassword)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        val user = auth.currentUser
+                        Toast.makeText(this, "Log in successful.", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, DashboardActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(this, "Incorrect Email or Password.", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
+}

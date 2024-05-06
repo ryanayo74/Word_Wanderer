@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="WELCOME"
+        android:text="@string/welcome"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
-        android:text="Display"
+        android:text="@string/display"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
-        android:text="DASHBOARD"
+        android:text="@string/dashboard"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -61,7 +61,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logout"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="32dp"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -73,7 +74,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vip"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/games"
@@ -85,7 +87,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/games"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/modules"
@@ -97,7 +100,8 @@
         app:layout_constraintStart_toEndOf="@+id/games"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/modules"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/Languages"
@@ -109,7 +113,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gamesTextView"
         app:srcCompat="@drawable/languages"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/Translation"
@@ -120,14 +125,15 @@
         app:layout_constraintStart_toEndOf="@+id/Languages"
         app:layout_constraintTop_toBottomOf="@+id/modulesTextView"
         app:srcCompat="@drawable/translation"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/gamesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Games"
+        android:text="@string/games"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -142,7 +148,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Modules"
+        android:text="@string/modules"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -156,7 +162,7 @@
         android:id="@+id/langaugesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Languages"
+        android:text="@string/languages"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -173,7 +179,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Translation"
+        android:text="@string/translation"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -194,7 +200,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/profile"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="32dp"
+        android:importantForAccessibility="no" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
