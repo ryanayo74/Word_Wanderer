@@ -15,4 +15,4 @@ HEREDIA, KERSHEY
 https://github.com/ryanayo74/Word_Wanderer<br>
 
 //SAMPLE APK <br>
-https://drive.google.com/file/d/1JXJkMw1e_hHeXCGcgcSBZLbIas7TFyZz/view?usp=sharing
+https://drive.google.com/drive/folders/1o8ymYG2FDo5ey2U1c_Wps1O2kcqPvWCd?usp=drive_link
