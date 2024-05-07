@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wordwanderer_background"
+    tools:context=".ModulesActivity">
+
+    <ImageView
+        android:id="@+id/imageViewTop"
+        android:layout_width="348dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vip"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/white"
+        app:boxBackgroundColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTextSearch"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableStart="@drawable/search_icon_black"
+            android:ems="10"
+            android:hint="@string/search"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btnBurger"
+        android:layout_width="40dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_burger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutSearch"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop" />
+
+    <Button
+        android:id="@+id/allButton"
+        android:layout_width="50dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/all"
+        app:layout_constraintEnd_toStartOf="@+id/popularButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch" />
+
+    <Button
+        android:id="@+id/popularButton"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/popular"
+        app:layout_constraintEnd_toStartOf="@+id/ratingsButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/allButton"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch" />
+
+    <Button
+        android:id="@+id/ratingsButton"
+        android:layout_width="84dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Ratings"
+        app:layout_constraintEnd_toStartOf="@+id/randomButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/popularButton"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch" />
+
+    <Button
+        android:id="@+id/randomButton"
+        android:layout_width="91dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:text="Random"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ratingsButton"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch" />
+
+
+    <TextView
+        android:id="@+id/textViewHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="4dp"
+        android:text="Home"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/adsButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Profile"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toEndOf="@+id/adsButton" />
+
+    <ImageView
+        android:id="@+id/accountButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGame4"
+        app:srcCompat="@drawable/account_icon" />
+
+    <ImageView
+        android:id="@+id/homeButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/adsButton"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/adsButton"
+        android:layout_width="61dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="84dp"
+        app:layout_constraintEnd_toStartOf="@+id/accountButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGame4"
+        app:srcCompat="@drawable/ads" />
+
+    <ImageView
+        android:id="@+id/imageViewGame1"
+        android:layout_width="148dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewGame3"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/allButton"
+        app:srcCompat="@drawable/game1" />
+
+    <ImageView
+        android:id="@+id/imageViewGame2"
+        android:layout_width="154dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGame1"
+        app:srcCompat="@drawable/game3" />
+
+    <ImageView
+        android:id="@+id/imageViewGame3"
+        android:layout_width="176dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomButton"
+        app:srcCompat="@drawable/game2" />
+
+    <ImageView
+        android:id="@+id/imageViewGame4"
+        android:layout_width="181dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewGame2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGame3"
+        app:srcCompat="@drawable/game4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

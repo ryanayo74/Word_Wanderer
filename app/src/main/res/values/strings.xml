@@ -14,4 +14,12 @@
     <string name="modules">Modules</string>
     <string name="languages">Languages</string>
     <string name="translation">Translation</string>
+    <string name="general_settings">General Settings</string>
+    <string name="search">Search</string>
+    <string name="fun">Fun</string>
+    <string name="all">All</string>
+    <string name="popular">Popular</string>
+    <string name="academic">Academic</string>
+    <string name="random">Random</string>
+    <string name="topArrow1"><![CDATA[<]]></string>
 </resources>

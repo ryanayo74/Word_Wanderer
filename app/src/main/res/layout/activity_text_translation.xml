@@ -44,7 +44,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="TEXT"
+        android:text="MIC"
         android:padding="10dp"
         android:textSize="25sp"
         android:background="@drawable/rounded_button"
@@ -147,7 +147,6 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/round_effect"
-        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

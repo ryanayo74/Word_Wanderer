@@ -56,6 +56,7 @@ class LogInActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         Toast.makeText(this, "Log in successful.", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, DashboardActivity::class.java)
+                        intent.putExtra("Username", inputUserName)
                         startActivity(intent)
                         finish()
                     } else {
