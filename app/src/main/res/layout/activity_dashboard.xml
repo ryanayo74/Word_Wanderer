@@ -65,7 +65,7 @@
         tools:layout_editor_absoluteY="32dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/upgradeVipImageView"
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:layout_marginTop="144dp"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/upgradeVipImageView"
         app:srcCompat="@drawable/games"
         tools:ignore="MissingConstraints" />
 
@@ -99,12 +99,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/upgradeVipImageView"
         app:srcCompat="@drawable/modules"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/Languages"
+        android:id="@+id/languagesImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
@@ -119,9 +119,9 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/Translation"
-        android:layout_width="106dp"
-        android:layout_height="133dp"
+        android:id="@+id/translationImageView"
+        android:layout_width="104dp"
+        android:layout_height="99dp"
         android:layout_marginTop="508dp"
         android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,10 +138,10 @@
         android:layout_marginTop="8dp"
         android:text="@string/games"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/games"
         tools:ignore="MissingConstraints" />
@@ -153,9 +153,9 @@
         android:layout_marginTop="8dp"
         android:text="@string/modules"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Translation"
+        app:layout_constraintBottom_toTopOf="@+id/translationImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toEndOf="@+id/gamesTextView"
@@ -170,13 +170,13 @@
         android:layout_marginTop="20dp"
         android:text="@string/languages"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Languages"
+        app:layout_constraintTop_toBottomOf="@+id/languagesImageView"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
@@ -184,13 +184,13 @@
         android:id="@+id/translationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_marginTop="624dp"
         android:text="@string/translation"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />

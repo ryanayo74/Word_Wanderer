@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,36 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity"
     android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:layout_marginBottom="0dp"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="50dp">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="139dp"
-            android:layout_height="10dp"
-            android:layout_marginBottom="3dp"
+            android:layout_height="80dp"
+
             android:layout_weight="1"
             app:srcCompat="@drawable/logo" />
 
         <ImageView
             android:id="@+id/mic"
-            android:layout_width="139dp"
-            android:layout_height="10dp"
+            android:layout_width="94dp"
+            android:layout_height="52dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/mic" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"
-
+            android:layout_width="300dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:gravity="center_vertical|center"
@@ -48,9 +48,10 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:layout_marginBottom="30dp"
             android:fontFamily="sans-serif"
             android:gravity="center_vertical|center"
             android:text="CREATE ACCOUNT"
@@ -60,7 +61,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:gravity="left|bottom"
@@ -74,19 +75,20 @@
         <EditText
             android:id="@+id/emailAddress"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:background="@drawable/round_effect"
             android:ems="10"
             android:hint="Test1@Wordwanderer.com"
             android:inputType="textEmailAddress"
-            android:paddingLeft="8dp"
+            android:padding="8dp"
+            android:layout_marginBottom="15dp"
             android:textColor="@color/second_color" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:gravity="left|bottom"
@@ -100,19 +102,20 @@
         <EditText
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:background="@drawable/round_effect"
             android:ems="10"
             android:hint="+123-456-7890"
             android:inputType="number"
-            android:paddingLeft="8dp"
+            android:padding="8dp"
+            android:layout_marginBottom="15dp"
             android:textColor="@color/second_color" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="30dp"
 
             android:layout_weight="1"
             android:fontFamily="sans-serif"
@@ -126,50 +129,50 @@
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/round_effect"
             android:ems="10"
             android:hint="*******"
             android:inputType="textPassword"
-            android:paddingLeft="8dp"
+            android:padding="8dp"
             android:textColor="@color/second_color" />
 
 
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="170dp"
-            android:layout_height="5dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:background="@drawable/register_button"
-            android:textSize="15sp"
+            android:text="Register"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="Register" />
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textdisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already has account?"
-            android:textSize="10sp"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"/>
+            android:layout_marginStart="-5dp"
+            android:text="Already has account?"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="-22dp"
             android:text="Login"
-            android:textSize="10sp"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="-15dp"
             android:textColor="#FF0000"
-            />
+            android:textSize="15sp" />
 
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
 
 
 

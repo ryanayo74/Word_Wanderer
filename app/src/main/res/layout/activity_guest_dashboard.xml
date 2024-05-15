@@ -13,60 +13,56 @@
         android:background="@drawable/gradient"
         tools:context=".GuestDashboardActivity">
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="82dp"
-            android:layout_height="33dp"
-            android:layout_margin="5dp"
-            android:layout_weight="3"
-            android:hint="SELECT"
+        <AutoCompleteTextView
+            android:id="@+id/language_from"
+            android:layout_width="95dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="8dp"
             android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:text="Tagalog"
+            app:layout_constraintBottom_toTopOf="@+id/input"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintHorizontal_bias="0.066"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.588">
+            app:layout_constraintVertical_bias="1.0">
 
+        </AutoCompleteTextView>
 
-            <AutoCompleteTextView
-                android:id="@+id/language_from"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="7dp"
-                tools:layout_editor_absoluteY="195dp"
-                >
-            </AutoCompleteTextView>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <AutoCompleteTextView
             android:id="@+id/language_to"
             android:layout_width="95dp"
             android:layout_height="37dp"
             android:background="@color/white"
-            android:hint="Select"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:text="English"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.762"
+            app:layout_constraintHorizontal_bias="0.11"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.577">
-
+            app:layout_constraintTop_toBottomOf="@+id/input"
+            app:layout_constraintVertical_bias="0.039">
         </AutoCompleteTextView>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="628dp"
             android:text="WORDWANDERER"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/input"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49" />
 
         <Button
             android:id="@+id/signInButton"
@@ -108,95 +104,109 @@
             android:layout_height="268dp"
             android:background="@drawable/round_effect"
             android:gravity="top"
-            android:paddingLeft="50dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.325"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.287" />
+            app:layout_constraintVertical_bias="0.293" />
 
-        <TextView
-            android:id="@+id/output"
-            android:layout_width="369dp"
-            android:layout_height="266dp"
-            android:layout_weight="1"
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="368dp"
+            android:layout_height="268dp"
+            android:layout_marginTop="59dp"
             android:background="@drawable/round_effect"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.965">
+            app:layout_constraintTop_toBottomOf="@+id/input"
+            app:layout_constraintVertical_bias="0.0">
 
-        </TextView>
+            <TextView
+                android:id="@+id/output"
+                android:layout_width="368dp"
+                android:layout_height="268dp"
+                android:gravity="top"
+                android:paddingLeft="30dp"
+                android:paddingTop="8dp"
+                android:text=""
+                android:textColor="@android:color/black" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/sound"
+                android:layout_width="58dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_bg"
+                android:padding="10dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="190dp"
+                app:srcCompat="@drawable/volume" />
+
+            <ImageView
+                android:id="@+id/copyOutput"
+                android:layout_width="59dp"
+                android:layout_height="54dp"
+                android:layout_marginBottom="19dp"
+                android:background="@drawable/round_bg"
+                android:padding="10dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="130dp"
+                app:srcCompat="@drawable/coppy" />
+        </FrameLayout>
 
         <ImageView
             android:id="@+id/micButton"
             android:layout_width="61dp"
             android:layout_height="55dp"
-            android:layout_marginStart="312dp"
             android:background="@drawable/round_bg"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.928"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.346"
+            app:layout_constraintVertical_bias="0.363"
             app:srcCompat="@drawable/microphone" />
 
         <ImageView
-            android:id="@+id/sound"
-            android:layout_width="58dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="324dp"
-            android:background="@drawable/round_bg"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.828"
-            app:srcCompat="@drawable/volume" />
-
-        <ImageView
-            android:id="@+id/copy"
+            android:id="@+id/copyInput"
             android:layout_width="58dp"
             android:layout_height="56dp"
-            android:layout_marginStart="312dp"
             android:background="@drawable/round_bg"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.463"
-            app:srcCompat="@drawable/coppy" />
-
-        <ImageView
-            android:id="@+id/copy2"
-            android:layout_width="63dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="320dp"
-            android:background="@drawable/round_bg"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.937"
+            app:layout_constraintTop_toBottomOf="@+id/micButton"
+            app:layout_constraintVertical_bias="0.064"
             app:srcCompat="@drawable/coppy" />
 
         <ImageView
             android:id="@+id/translate"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:background="@drawable/round_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="91dp"
+            android:layout_height="31dp"
+            android:background="@color/white"
+            android:text="TRANSLATE"
+            android:textColor="#090808"
+            android:textSize="500sp"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.449"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.578"
-            app:srcCompat="@drawable/arrw" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/input"
+            app:layout_constraintVertical_bias="0.551"
+            app:srcCompat="@drawable/arrow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

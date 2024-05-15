@@ -1,11 +1,19 @@
 package com.translator.wordwanderer
 
+import android.app.AlertDialog
 import android.content.ActivityNotFoundException
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -19,13 +27,10 @@ import java.util.Locale
 class GuestDashboardActivity : AppCompatActivity() {
     lateinit var binding: ActivityGuestDashboardBinding
     private lateinit var textToSpeech: TextToSpeech
+    private lateinit var progressBar: ProgressBar
 
     private var items = arrayOf(
-        "Arabic", "Bengali", "Chinese (Simplified)", "Chinese (Traditional)", "Danish",
-        "Dutch", "English", "Finnish", "French", "German", "Greek", "Gujarati", "Hebrew",
-        "Hindi", "Indonesian", "Italian", "Japanese", "Korean", "Malay", "Norwegian",
-        "Portuguese", "Russian", "Spanish", "Swedish", "Tagalog", "Tamil", "Telugu",
-        "Thai", "Turkish", "Vietnamese"
+        "English", "Tagalog"
     )
 
     private var conditions = DownloadConditions.Builder()
@@ -36,15 +41,30 @@ class GuestDashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_guest_dashboard)
 
-        val itemsAdapter: ArrayAdapter<String> = ArrayAdapter(
-            this,
-            android.R.layout.simple_dropdown_item_1line, items)
+        progressBar = findViewById(R.id.progressBar)
 
+        val signIn: Button = findViewById(R.id.signInButton)
+        val signUp: Button = findViewById(R.id.signUpButton)
+        val intent = Intent(this, LogInActivity::class.java)
+        val intentSignUp = Intent(this, RegistrationActivity::class.java)
 
-        binding.languageFrom.setAdapter(itemsAdapter)
-        binding.languageTo.setAdapter(itemsAdapter)
+        signIn.setOnClickListener {
+            startActivity(intent)
+        }
+        signUp.setOnClickListener {
+            startActivity(intentSignUp)
+        }
+
+        binding.languageFrom.setOnClickListener {
+            showDialog()
+        }
+
+        binding.languageTo.setOnClickListener {
+            showDialog()
+        }
 
         binding.translate.setOnClickListener {
+            showLoading(true)
 
             val options = TranslatorOptions.Builder()
                 .setSourceLanguage(selectFrom())
@@ -55,28 +75,21 @@ class GuestDashboardActivity : AppCompatActivity() {
 
             englishGermanTranslator.downloadModelIfNeeded(conditions)
                 .addOnSuccessListener {
-
                     englishGermanTranslator.translate(binding.input.text.toString())
                         .addOnSuccessListener { translatedText ->
-
+                            showLoading(false)
                             binding.output.text = translatedText
-
                         }
                         .addOnFailureListener { exception ->
-
+                            showLoading(false)
                             Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
-
                         }
-
-
                 }
                 .addOnFailureListener { exception ->
-
+                    showLoading(false)
                     Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
-
                 }
         }
-
 
         binding.micButton.setOnClickListener {
             startSpeechToText()
@@ -85,10 +98,8 @@ class GuestDashboardActivity : AppCompatActivity() {
         textToSpeech = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 val result = textToSpeech.setLanguage(Locale.getDefault())
-                if (result == TextToSpeech.LANG_MISSING_DATA
-                    || result == TextToSpeech.LANG_NOT_SUPPORTED
-                ) {
-                    Toast.makeText(this, "language is not supported", Toast.LENGTH_LONG).show()
+                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Toast.makeText(this, "Language is not supported", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -105,6 +116,14 @@ class GuestDashboardActivity : AppCompatActivity() {
                 Toast.makeText(this, "Required", Toast.LENGTH_LONG).show()
             }
         }
+
+        binding.copyInput.setOnClickListener {
+            copyToClipboard(binding.input.text.toString())
+        }
+
+        binding.copyOutput.setOnClickListener {
+            copyToClipboard(binding.output.text.toString())
+        }
     }
 
     private fun startSpeechToText() {
@@ -115,46 +134,15 @@ class GuestDashboardActivity : AppCompatActivity() {
         try {
             startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT)
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(
-                applicationContext,
-                "Speech to text not supported",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(applicationContext, "Speech to text not supported", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun selectFrom(): String {
         return when (binding.languageFrom.text.toString()) {
             "" -> TranslateLanguage.ENGLISH
-            "Arabic" -> TranslateLanguage.ARABIC
-            "Bengali" -> TranslateLanguage.BENGALI
-            "Chinese (Simplified)" -> TranslateLanguage.CHINESE
-            "Danish" -> TranslateLanguage.DANISH
-            "Dutch" -> TranslateLanguage.DUTCH
             "English" -> TranslateLanguage.ENGLISH
-            "Finnish" -> TranslateLanguage.FINNISH
-            "French" -> TranslateLanguage.FRENCH
-            "German" -> TranslateLanguage.GERMAN
-            "Greek" -> TranslateLanguage.GREEK
-            "Gujarati" -> TranslateLanguage.GUJARATI
-            "Hebrew" -> TranslateLanguage.HEBREW
-            "Hindi" -> TranslateLanguage.HINDI
-            "Indonesian" -> TranslateLanguage.INDONESIAN
-            "Italian" -> TranslateLanguage.ITALIAN
-            "Japanese" -> TranslateLanguage.JAPANESE
-            "Korean" -> TranslateLanguage.KOREAN
-            "Malay" -> TranslateLanguage.MALAY
-            "Norwegian" -> TranslateLanguage.NORWEGIAN
-            "Portuguese" -> TranslateLanguage.PORTUGUESE
-            "Russian" -> TranslateLanguage.RUSSIAN
-            "Spanish" -> TranslateLanguage.SPANISH
-            "Swedish" -> TranslateLanguage.SWEDISH
             "Tagalog" -> TranslateLanguage.TAGALOG
-            "Tamil" -> TranslateLanguage.TAMIL
-            "Telugu" -> TranslateLanguage.TELUGU
-            "Thai" -> TranslateLanguage.THAI
-            "Turkish" -> TranslateLanguage.TURKISH
-            "Vietnamese" -> TranslateLanguage.VIETNAMESE
             else -> TranslateLanguage.ENGLISH
         }
     }
@@ -162,37 +150,25 @@ class GuestDashboardActivity : AppCompatActivity() {
     private fun selectTo(): String {
         return when (binding.languageTo.text.toString()) {
             "" -> TranslateLanguage.ENGLISH
-            "Arabic" -> TranslateLanguage.ARABIC
-            "Bengali" -> TranslateLanguage.BENGALI
-            "Chinese (Simplified)" -> TranslateLanguage.CHINESE
-            "Danish" -> TranslateLanguage.DANISH
-            "Dutch" -> TranslateLanguage.DUTCH
             "English" -> TranslateLanguage.ENGLISH
-            "Finnish" -> TranslateLanguage.FINNISH
-            "French" -> TranslateLanguage.FRENCH
-            "German" -> TranslateLanguage.GERMAN
-            "Greek" -> TranslateLanguage.GREEK
-            "Gujarati" -> TranslateLanguage.GUJARATI
-            "Hebrew" -> TranslateLanguage.HEBREW
-            "Hindi" -> TranslateLanguage.HINDI
-            "Indonesian" -> TranslateLanguage.INDONESIAN
-            "Italian" -> TranslateLanguage.ITALIAN
-            "Japanese" -> TranslateLanguage.JAPANESE
-            "Korean" -> TranslateLanguage.KOREAN
-            "Malay" -> TranslateLanguage.MALAY
-            "Norwegian" -> TranslateLanguage.NORWEGIAN
-            "Portuguese" -> TranslateLanguage.PORTUGUESE
-            "Russian" -> TranslateLanguage.RUSSIAN
-            "Spanish" -> TranslateLanguage.SPANISH
-            "Swedish" -> TranslateLanguage.SWEDISH
             "Tagalog" -> TranslateLanguage.TAGALOG
-            "Tamil" -> TranslateLanguage.TAMIL
-            "Telugu" -> TranslateLanguage.TELUGU
-            "Thai" -> TranslateLanguage.THAI
-            "Turkish" -> TranslateLanguage.TURKISH
-            "Vietnamese" -> TranslateLanguage.VIETNAMESE
             else -> TranslateLanguage.ENGLISH
         }
+    }
+
+    private fun showDialog() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setTitle("Register for More Features")
+            .setMessage("To access more features, register now.")
+            .setPositiveButton("Register") { dialog, which ->
+                val intent = Intent(this, RegistrationActivity::class.java)
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -205,6 +181,17 @@ class GuestDashboardActivity : AppCompatActivity() {
                 binding.input.setText(spokenText)
             }
         }
+    }
+
+    private fun copyToClipboard(text: String) {
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Copied Text", text)
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLoading(show: Boolean) {
+        progressBar.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     companion object {

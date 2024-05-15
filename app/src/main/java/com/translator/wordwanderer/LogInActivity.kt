@@ -1,31 +1,44 @@
 package com.translator.wordwanderer
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.Firebase
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getSupportActionBar()?.hide();
+        supportActionBar?.hide()
         setContentView(R.layout.activity_log_in)
 
         auth = Firebase.auth
 
-        val buttonSignIn:Button = findViewById(R.id.buttonSignIn)
-        val editTextUserName:EditText = findViewById(R.id.textUserName)
-        val editTextPassword:EditText = findViewById(R.id.textPassword)
-        val forgotPassword:TextView = findViewById(R.id.textForgotPassword)
-        val register:TextView = findViewById(R.id.textRegister)
+        val buttonSignIn: Button = findViewById(R.id.buttonSignIn)
+        val editTextUserName: EditText = findViewById(R.id.textUserName)
+        val editTextPassword: EditText = findViewById(R.id.textPassword)
+        val checkBoxShowPassword: CheckBox = findViewById(R.id.checkBoxShowPassword)
+        val forgotPassword: TextView = findViewById(R.id.textForgotPassword)
+        val register: TextView = findViewById(R.id.textRegister)
+
+        // Show or hide password
+        checkBoxShowPassword.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
 
         forgotPassword.setOnClickListener {
             val intent = Intent(this@LogInActivity, ForgotPasswordActivity::class.java)
