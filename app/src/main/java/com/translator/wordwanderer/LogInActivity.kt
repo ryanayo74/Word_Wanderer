@@ -65,13 +65,19 @@ class LogInActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(inputUserName, inputPassword)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
-                        Toast.makeText(this, "Log in successful.", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, DashboardActivity::class.java)
-                        intent.putExtra("Username", inputUserName)
-                        startActivity(intent)
-                        finish()
+                        if (user != null && user.isEmailVerified) {
+                            // Email is verified, proceed to the next activity
+                            Toast.makeText(this, "Log in successful.", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, DashboardActivity::class.java)
+                            intent.putExtra("Username", inputUserName)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            // Email is not verified, log out and show message
+                            auth.signOut()
+                            Toast.makeText(this, "Please verify your email address.", Toast.LENGTH_SHORT).show()
+                        }
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(this, "Incorrect Email or Password.", Toast.LENGTH_SHORT).show()
