@@ -54,6 +54,13 @@ class DashboardActivity : AppCompatActivity() {
             finish()
         }
 
+        translationImageView.setOnClickListener {
+            val intent = Intent(this@DashboardActivity, TextTranslationActivity::class.java)
+            intent.putExtra("Username", name)
+            startActivity(intent)
+            finish()
+        }
+
 
         //For UnderConstruction Page
         languageImageView.setOnClickListener {
@@ -70,12 +77,7 @@ class DashboardActivity : AppCompatActivity() {
             finish()
         }
 
-        translationImageView.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", name)
-            startActivity(intent)
-            finish()
-        }
+
 
 
     }
