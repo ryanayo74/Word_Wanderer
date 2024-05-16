@@ -15,14 +15,13 @@
 
         <AutoCompleteTextView
             android:id="@+id/language_from"
-            android:layout_width="95dp"
-            android:layout_height="37dp"
+            android:layout_width="115dp"
+            android:layout_height="39dp"
             android:layout_marginBottom="8dp"
             android:background="@color/white"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:text="Tagalog"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:paddingEnd="10dp"
+            android:text=""
             app:layout_constraintBottom_toTopOf="@+id/input"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.066"
@@ -30,21 +29,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
+
         <AutoCompleteTextView
             android:id="@+id/language_to"
-            android:layout_width="95dp"
-            android:layout_height="37dp"
+            android:layout_width="115dp"
+            android:layout_height="36dp"
             android:background="@color/white"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:text="English"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:paddingEnd="10dp"
+            android:text=""
             app:layout_constraintBottom_toTopOf="@+id/frameLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintHorizontal_bias="0.066"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input"
-            app:layout_constraintVertical_bias="0.039" />
+            app:layout_constraintVertical_bias="0.545" />
 
         <EditText
             android:id="@+id/input"
@@ -120,23 +119,23 @@
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/copyInput"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintHorizontal_bias="0.92"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.363"
+            app:layout_constraintVertical_bias="0.916"
             app:srcCompat="@drawable/microphone" />
 
         <ImageView
             android:id="@+id/copyInput"
             android:layout_width="58dp"
             android:layout_height="56dp"
+            android:layout_marginBottom="56dp"
             android:background="@drawable/round_bg"
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/translate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.92"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.064"
             app:srcCompat="@drawable/coppy" />
 
         <ImageView
