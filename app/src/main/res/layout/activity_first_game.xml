@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#883F1568"
+    tools:context=".Activities.FirstGameActivity">
+
+    <FrameLayout
+        android:id="@+id/imageViewContainer"
+        android:layout_width="305dp"
+        android:layout_height="479dp"
+        android:background="@drawable/border_game1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="55dp"
+            android:layout_height="23dp"
+            android:layout_marginBottom="224dp"
+            android:text="0/10"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:id="@+id/guestimageView"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            tools:srcCompat="@drawable/philippines"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="0dp"/>
+
+
+        <Button
+            android:id="@+id/firstChoice"
+            android:layout_width="255dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="210dp"
+            android:text="Choice 1" />
+
+        <Button
+            android:id="@+id/secondChoice"
+            android:layout_width="255dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="270dp"
+            android:text="Choice 2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstChoice" />
+
+        <Button
+            android:id="@+id/thirdChoice"
+            android:layout_width="255dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="330dp"
+            android:text="Choice 3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/secondChoice" />
+
+        <Button
+            android:id="@+id/fourthChoice"
+            android:layout_width="255dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="390dp"
+            android:text="Choice 4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thirdChoice" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

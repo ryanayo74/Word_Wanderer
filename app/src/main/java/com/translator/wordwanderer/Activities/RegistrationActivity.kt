@@ -1,4 +1,4 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
+import com.translator.wordwanderer.R
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -30,9 +31,11 @@ class RegistrationActivity : AppCompatActivity() {
         val inputEmail: EditText = findViewById(R.id.emailAddress)
         val inputPhoneNumber: EditText = findViewById(R.id.phoneNumber)
         val inputPassWord: EditText = findViewById(R.id.password)
+        val inputFullName: EditText = findViewById(R.id.fullName);
         var emailInput: String?
         var numInput: String?
         var passInput: String?
+        var fullNameInput: String?;
 
         val textLogin: TextView = findViewById(R.id.textLogin)
 
@@ -46,8 +49,9 @@ class RegistrationActivity : AppCompatActivity() {
             emailInput = inputEmail.text.toString()
             numInput = inputPhoneNumber.text.toString()
             passInput = inputPassWord.text.toString()
+            fullNameInput = inputFullName.getText().toString()
 
-            if (isEmailValid(emailInput!!) && isPasswordValid(passInput!!) && isPhoneValid(numInput!!)) {
+            if (isEmailValid(emailInput!!) && isPasswordValid(passInput!!) && isPhoneValid(numInput!!) && isFullNameValid(fullNameInput!!)) {
                 // Create the user in Firebase Authentication
                 auth.createUserWithEmailAndPassword(emailInput!!, passInput!!)
                     .addOnCompleteListener(this) { task ->
@@ -66,7 +70,7 @@ class RegistrationActivity : AppCompatActivity() {
                                             .addOnCompleteListener { emailTask ->
                                                 if (emailTask.isSuccessful) {
                                                     // Save user information to Firestore
-                                                    saveUserToFirestore(user.uid, emailInput!!, numInput!!)
+                                                    saveUserToFirestore(user.uid, emailInput!!, numInput!!, fullNameInput!!);
                                                     Toast.makeText(
                                                         baseContext,
                                                         "Account created. Please verify your email.",
@@ -129,11 +133,12 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserToFirestore(userId: String, email: String, phoneNumber: String) {
+    private fun saveUserToFirestore(userId: String, email: String, phoneNumber: String, fullName: String) {
         val user = hashMapOf(
             "email" to email,
-            "phoneNumber" to phoneNumber
-        )
+            "phoneNumber" to phoneNumber,
+            "fullName" to fullName
+        );
 
         db.collection("users").document(userId)
             .set(user)
@@ -178,6 +183,11 @@ class RegistrationActivity : AppCompatActivity() {
         val length = number.length == 11
 
         return digitsOnly && length
+    }
+
+    // Function for full name validation
+    private fun isFullNameValid(fullName: String): Boolean {
+        return fullName.isNotEmpty();
     }
 }
 

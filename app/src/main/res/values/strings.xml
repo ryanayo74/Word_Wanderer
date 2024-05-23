@@ -22,4 +22,6 @@
     <string name="academic">Academic</string>
     <string name="random">Random</string>
     <string name="topArrow1"><![CDATA[<]]></string>
+    <string name="english">English</string>
+    <string name="tagalog">Tagalog</string>
 </resources>

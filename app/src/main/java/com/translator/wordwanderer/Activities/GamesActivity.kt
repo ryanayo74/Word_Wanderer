@@ -1,9 +1,10 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.translator.wordwanderer.R
 
 
 class GamesActivity : AppCompatActivity() {
@@ -43,8 +44,7 @@ class GamesActivity : AppCompatActivity() {
         }
 
         imageViewGame1.setOnClickListener {
-            val intent = Intent(this@GamesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@GamesActivity, FirstGameActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -1,8 +1,9 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.translator.wordwanderer.R
 
 class UnderConstruction : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

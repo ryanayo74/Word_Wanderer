@@ -1,10 +1,11 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.translator.wordwanderer.R
 
 class LoginGuestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class LoginGuestActivity : AppCompatActivity() {
 
 
         val loginButton:Button = findViewById(R.id.button_signin)
-        val guestButton:Button = findViewById(R.id. button_login_guest)
+        val guestButton:Button = findViewById(R.id.button_login_guest)
         val registerTextView:TextView = findViewById(R.id.textRegister)
 
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".ModulesActivity">
+    tools:context=".Activities.GamesActivity">
 
     <ImageView
         android:id="@+id/upgradeVipImageView"
@@ -113,9 +113,6 @@
         app:layout_constraintStart_toEndOf="@+id/textInputLayoutSearch"
         app:layout_constraintTop_toBottomOf="@+id/upgradeVipImageView" />
 
-
-
-
     <TextView
         android:id="@+id/textViewHome"
         android:layout_width="40dp"
@@ -154,17 +151,26 @@
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toEndOf="@+id/adsButton" />
 
-    <ImageView
-        android:id="@+id/imageViewGame1"
+    <FrameLayout
+        android:id="@+id/imageViewContainer"
         android:layout_width="148dp"
         android:layout_height="153dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageViewGame3"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allButton"
-        app:srcCompat="@drawable/game1" />
+        android:background="@drawable/border">
+
+        <ImageView
+            android:id="@+id/imageViewGame1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            app:srcCompat="@drawable/guesstheflag" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/imageViewGame2"
@@ -173,7 +179,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewGame1"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewContainer"
         app:srcCompat="@drawable/game3" />
 
     <ImageView

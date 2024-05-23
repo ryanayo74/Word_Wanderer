@@ -1,4 +1,4 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.translator.wordwanderer.R
 
 class ModulesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,22 +55,19 @@ class ModulesActivity : AppCompatActivity() {
         }
 
         imageModule1Button.setOnClickListener {
-            val intent = Intent(this@ModulesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@ModulesActivity, ModuleOneActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         imageModule2Button.setOnClickListener {
-            val intent = Intent(this@ModulesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@ModulesActivity, ModuleTwoActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         imageModule3Button.setOnClickListener {
-            val intent = Intent(this@ModulesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@ModulesActivity, ModuleThreeActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -94,4 +92,6 @@ class ModulesActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+
 }

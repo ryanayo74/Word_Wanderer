@@ -1,4 +1,4 @@
-package com.translator.wordwanderer
+package com.translator.wordwanderer.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.translator.wordwanderer.R
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".ModulesActivity">
+    tools:context=".Activities.ModulesActivity">
 
     <ImageView
         android:id="@+id/upgradeVipImageView"
@@ -126,14 +126,14 @@
         android:id="@+id/textViewModule3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Module 3"
+        android:text="Cultural Insights \n and Etiquette"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule3Button"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <TextView
         android:id="@+id/textViewModule5"
@@ -153,10 +153,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="Module 2"
+        android:text="English to French"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageModule2Button" />
 
@@ -198,14 +198,14 @@
         android:id="@+id/textViewModule1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Module 1"
+        android:text="English to Tagalog"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/imageModule3Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule1Button"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/ads"
