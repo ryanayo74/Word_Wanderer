@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".Activities.DashboardActivity">
+    tools:context=".activities.DashboardActivity">
 
     <TextView
         android:id="@+id/textViewDashboard"
@@ -41,7 +41,7 @@
         android:id="@+id/Dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="135dp"
         android:text="@string/dashboard"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -66,7 +66,7 @@
 
     <ImageView
         android:id="@+id/upgradeVipImageView"
-        android:layout_width="350dp"
+        android:layout_width="370dp"
         android:layout_height="200dp"
         android:layout_marginTop="144dp"
         android:importantForAccessibility="no"

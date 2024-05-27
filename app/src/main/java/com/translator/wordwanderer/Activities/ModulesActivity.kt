@@ -1,7 +1,8 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,8 @@ class ModulesActivity : AppCompatActivity() {
         val imageModule2Button: ImageView = findViewById(R.id.imageModule2Button)
         val imageModule3Button: ImageView = findViewById(R.id.imageModule3Button)
         val imageModule4Button: ImageView = findViewById(R.id.imageModule4Button)
+        val allButton : Button = findViewById(R.id.allButton)
+        val academicButton : Button = findViewById(R.id.academicButton)
 
 
         homeImageView.setOnClickListener {
@@ -38,14 +41,12 @@ class ModulesActivity : AppCompatActivity() {
 
         accountImageView.setOnClickListener {
 
-
             // Start ProfileActivity and pass the username as an extra
             val profileIntent = Intent(this@ModulesActivity, ProfileActivity::class.java)
             profileIntent.putExtra("Username", username)
             startActivity(profileIntent)
             finish()
         }
-
         //UnderConstruction
         upgradeVipImageView.setOnClickListener {
             val intent = Intent(this@ModulesActivity, UnderConstruction::class.java)
@@ -67,18 +68,30 @@ class ModulesActivity : AppCompatActivity() {
         }
 
         imageModule3Button.setOnClickListener {
-            val intent = Intent(this@ModulesActivity, ModuleThreeActivity::class.java)
+            val intent = Intent(this@ModulesActivity, UpgradeActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         imageModule4Button.setOnClickListener {
-            val intent = Intent(this@ModulesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@ModulesActivity, UpgradeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        allButton.setOnClickListener {
+            val intent = Intent(this@ModulesActivity, ModulesActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        academicButton.setOnClickListener {
+            val intent = Intent(this@ModulesActivity, ModulesActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()
@@ -92,6 +105,4 @@ class ModulesActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-
 }

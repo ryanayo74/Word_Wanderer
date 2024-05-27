@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="English"
+            android:layout_marginStart="25dp"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="8dp" />
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="French"
+            android:layout_marginStart="25dp"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="8dp" />

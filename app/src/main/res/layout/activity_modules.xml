@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".Activities.ModulesActivity">
+    tools:context=".activities.ModulesActivity">
 
     <ImageView
         android:id="@+id/upgradeVipImageView"
@@ -130,7 +130,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule3Button"
         app:layout_constraintVertical_bias="0.019" />
@@ -139,14 +139,14 @@
         android:id="@+id/textViewModule5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Module 4"
+        android:text="Emergency and \n Survival Phrases"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule4Button"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewModule2"
@@ -156,7 +156,7 @@
         android:text="English to French"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageModule2Button" />
 
@@ -169,7 +169,7 @@
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule2Button"
-        app:srcCompat="@drawable/m4" />
+        app:srcCompat="@drawable/unlock" />
 
     <ImageButton
         android:id="@+id/imageModule3Button"
@@ -180,7 +180,8 @@
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageModule1Button"
-        app:srcCompat="@drawable/module3" />
+        app:srcCompat="@drawable/unlock"
+        android:padding="10dp"/>
 
     <ImageButton
         android:id="@+id/btnBurger"

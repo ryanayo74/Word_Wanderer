@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException

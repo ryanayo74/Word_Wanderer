@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

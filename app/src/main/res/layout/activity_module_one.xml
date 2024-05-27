@@ -19,6 +19,7 @@
             android:text="English"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginStart="25dp"
             android:padding="8dp" />
 
         <TextView
@@ -28,6 +29,7 @@
             android:layout_weight="1"
             android:text="Tagalog"
             android:textSize="18sp"
+            android:layout_marginStart="25dp"
             android:textStyle="bold"
             android:padding="8dp" />
     </LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".Activities.GamesActivity">
+    tools:context=".activities.GamesActivity">
 
     <ImageView
         android:id="@+id/upgradeVipImageView"
@@ -157,11 +157,11 @@
         android:layout_height="153dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewGame3"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewContainer2"
         app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allButton"
-        android:background="@drawable/border">
+        app:layout_constraintTop_toBottomOf="@+id/allButton">
 
         <ImageView
             android:id="@+id/imageViewGame1"
@@ -172,35 +172,72 @@
 
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/imageViewGame2"
-        android:layout_width="154dp"
-        android:layout_height="144dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+
+    <FrameLayout
+        android:id="@+id/imageViewContainer2"
+        android:layout_width="148dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomButton">
+
+        <ImageView
+            android:id="@+id/imageViewGame2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            app:srcCompat="@drawable/unlock"  />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/imageViewContainer3"
+        android:layout_width="148dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/border"
+        app:layout_constraintBottom_toTopOf="@+id/homeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewContainer"
-        app:srcCompat="@drawable/game3" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageView
-        android:id="@+id/imageViewGame3"
-        android:layout_width="176dp"
-        android:layout_height="149dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomButton"
-        app:srcCompat="@drawable/game2" />
+        <ImageView
+            android:id="@+id/imageViewGame3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            app:srcCompat="@drawable/fillintheblank" />
 
-    <ImageView
-        android:id="@+id/imageViewGame4"
-        android:layout_width="181dp"
-        android:layout_height="142dp"
-        android:layout_marginTop="24dp"
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/imageViewContainer4"
+        android:layout_width="148dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/border"
+        app:layout_constraintBottom_toTopOf="@+id/homeButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewGame2"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewGame3"
-        app:srcCompat="@drawable/game4" />
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toEndOf="@+id/imageViewContainer3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewContainer2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageViewGame4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            app:srcCompat="@drawable/unlock" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/accountButton"
@@ -234,5 +271,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ads" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,5 +22,6 @@
         android:layout_weight="1"
         android:text="@string/tagalog"
         android:textSize="18sp"
+        android:layout_marginStart="24dp"
         android:padding="8dp" />
 </LinearLayout>

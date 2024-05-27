@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Adapter
+package com.translator.wordwanderer.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.translator.wordwanderer.Model.ModuleTwoTranslation
+import com.translator.wordwanderer.model.ModuleTwoTranslation
 import com.translator.wordwanderer.R
 
 class TranslationAdapterModuleTwo(private val context: Context, private val dataSource: List<ModuleTwoTranslation>) : BaseAdapter() {

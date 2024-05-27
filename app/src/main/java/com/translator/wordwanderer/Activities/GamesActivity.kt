@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -35,9 +35,9 @@ class GamesActivity : AppCompatActivity() {
             finish()
         }
 
-        //UnderConstruction
+
         upgradeVipImageView.setOnClickListener {
-            val intent = Intent(this@GamesActivity, UnderConstruction::class.java)
+            val intent = Intent(this@GamesActivity, UpgradeActivity::class.java)
             intent.putExtra("Username", username)
             startActivity(intent)
             finish()
@@ -50,21 +50,20 @@ class GamesActivity : AppCompatActivity() {
         }
 
         imageViewGame2.setOnClickListener {
-            val intent = Intent(this@GamesActivity, UnderConstruction::class.java)
-            intent.putExtra("Username", username)
+            val intent = Intent(this@GamesActivity, UpgradeActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         imageViewGame3.setOnClickListener {
-            val intent = Intent(this@GamesActivity, UnderConstruction::class.java)
+            val intent = Intent(this@GamesActivity, ThirdGameActivity::class.java)
             intent.putExtra("Username", username)
             startActivity(intent)
             finish()
         }
-
+        
         imageViewGame4.setOnClickListener {
-            val intent = Intent(this@GamesActivity, UnderConstruction::class.java)
+            val intent = Intent(this@GamesActivity, UpgradeActivity::class.java)
             intent.putExtra("Username", username)
             startActivity(intent)
             finish()
@@ -78,9 +77,7 @@ class GamesActivity : AppCompatActivity() {
     }
 
     private fun navigateToDashboard() {
-        val username = intent.getStringExtra("Username") // Retrieve username
         val intent = Intent(this@GamesActivity, DashboardActivity::class.java)
-        intent.putExtra("Username", username) // Pass username to DashboardActivity
         startActivity(intent)
         finish()
     }

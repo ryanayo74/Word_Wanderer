@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -34,8 +34,6 @@ class DashboardActivity : AppCompatActivity() {
         val logoutButton: ImageView = findViewById(R.id.buttonLogout)
         displayNameTextView = findViewById(R.id.textViewUserName)
         profileImageView = findViewById(R.id.profile)
-
-        // For UnderConstruction Page
         val upgradeVipImageView: ImageView = findViewById(R.id.upgradeVipImageView)
 
 
@@ -81,7 +79,7 @@ class DashboardActivity : AppCompatActivity() {
 
         // For UnderConstruction Page
         upgradeVipImageView.setOnClickListener {
-            val intent = Intent(this@DashboardActivity, UnderConstruction::class.java)
+            val intent = Intent(this@DashboardActivity, UpgradeActivity::class.java)
 
             startActivity(intent)
             finish()

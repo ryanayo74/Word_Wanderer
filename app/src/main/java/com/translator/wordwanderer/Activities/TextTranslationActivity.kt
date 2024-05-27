@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.*
 import android.os.Bundle

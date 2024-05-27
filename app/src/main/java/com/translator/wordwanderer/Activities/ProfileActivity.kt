@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -57,13 +57,17 @@ class ProfileActivity : AppCompatActivity() {
             openImageChooser()
         }
 
-
         val backButton: TextView = findViewById(R.id.backButton)
         val signOut: TextView = findViewById(R.id.topSignOut)
         val changePassword: TextView = findViewById(R.id.changePassword)
         val changeUserName: TextView = findViewById(R.id.changeUserName)
+        val aboutApp: TextView = findViewById(R.id.AboutApp)
+        val termcon: TextView = findViewById(R.id.termAndCond)
+        val share: TextView = findViewById(R.id.shareThisApp)
+        val privacy: TextView = findViewById(R.id.privacyPolicy)
+        val subscriptionText: TextView = findViewById(R.id.subscriptionText)
 
-        setupClickListeners(backButton, signOut, changePassword, changeUserName)
+        setupClickListeners(backButton, signOut, changePassword, changeUserName, aboutApp, termcon, share, privacy, subscriptionText)  // Modified this line
     }
 
     private fun initializeFirebase() {
@@ -107,27 +111,53 @@ class ProfileActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun setupClickListeners(backButton: TextView, signOut: TextView, changePassword: TextView, changeUserName: TextView) {
+    private fun setupClickListeners(backButton: TextView, signOut: TextView, changePassword: TextView, changeUserName: TextView,
+                                    aboutApp: TextView, termcon: TextView, share: TextView, privacy: TextView, subscriptionText: TextView) {  // Modified this line
         backButton.setOnClickListener {
             navigateToDashboard()
         }
-
+        privacy.setOnClickListener {
+            val intent = Intent(this@ProfileActivity, PrivacyActivity::class.java)
+            startActivity(intent)
+        }
+        aboutApp.setOnClickListener {
+            val intent = Intent(this@ProfileActivity, AboutAppActivity::class.java)
+            startActivity(intent)
+        }
+        termcon.setOnClickListener {
+            val intent = Intent(this@ProfileActivity, TermsConditionsActivity::class.java)
+            startActivity(intent)
+        }
         signOut.setOnClickListener {
             auth.signOut()
             val intent = Intent(this@ProfileActivity, LoginGuestActivity::class.java)
             startActivity(intent)
             finish()
         }
-
         changePassword.setOnClickListener {
             val intent = Intent(this@ProfileActivity, ChangePasswordActivity::class.java)
             startActivity(intent)
         }
-
         changeUserName.setOnClickListener {
             val intent = Intent(this@ProfileActivity, ChangeUserNameActivity::class.java)
             startActivity(intent)
         }
+        share.setOnClickListener {
+            shareUrl()
+        }
+        subscriptionText.setOnClickListener {  // Added this block
+            val intent = Intent(this@ProfileActivity, UpgradeActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun shareUrl() {
+        val shareUrlIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://1drv.ms/u/s!AuYUZdXiUt49hQxXFUG2Kly3iuc_?e=7FJ7RE")
+            type = "text/plain"
+        }
+        startActivity(Intent.createChooser(shareUrlIntent, "Share URL via"))
     }
 
     private fun showToast(message: String) {

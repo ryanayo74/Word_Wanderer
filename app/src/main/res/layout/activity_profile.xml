@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wordwanderer_background"
-    tools:context=".Activities.ProfileActivity">
+    tools:context=".activities.ProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -118,7 +118,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="24dp"
         android:background="#050505"
-        app:layout_constraintBottom_toTopOf="@+id/locationText"
+        app:layout_constraintBottom_toTopOf="@+id/subscriptionText"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">
 
@@ -140,11 +140,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/imageLocation"
+        android:id="@+id/imageSubcription"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:text="TextView"
-        android:background="@drawable/location"
+        android:background="@drawable/subscription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -153,15 +153,15 @@
         app:layout_constraintVertical_bias="0.432" />
 
     <TextView
-        android:id="@+id/locationText"
+        android:id="@+id/subscriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
+        android:text="Subscription"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.283"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.431" />
@@ -243,10 +243,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintVertical_bias="0.563" />
 
     <TextView
         android:id="@+id/generalSettingsArrow4"
@@ -401,7 +401,7 @@
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/informationArrow7"

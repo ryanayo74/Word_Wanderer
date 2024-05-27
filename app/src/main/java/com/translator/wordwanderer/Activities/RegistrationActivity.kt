@@ -1,4 +1,4 @@
-package com.translator.wordwanderer.Activities
+package com.translator.wordwanderer.activities
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -137,8 +137,9 @@ class RegistrationActivity : AppCompatActivity() {
         val user = hashMapOf(
             "email" to email,
             "phoneNumber" to phoneNumber,
-            "fullName" to fullName
-        );
+            "fullName" to fullName,
+            "userType" to "free" // Adding userType field with value "free"
+        )
 
         db.collection("users").document(userId)
             .set(user)
